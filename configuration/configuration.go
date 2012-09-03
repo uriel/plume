@@ -18,7 +18,8 @@ type Configuration struct {
 	Blogroll    []Link
 }
 
-func Load(config_path string) (config Configuration, err error) {
+func Load(config_path string) (Configuration, error) {
+	var config Configuration
 	b, read_err := ioutil.ReadFile(config_path)
 
 	if read_err != nil {
@@ -30,5 +31,5 @@ func Load(config_path string) (config Configuration, err error) {
 		return config, parse_err
 	}
 
-	return config, err
+	return config, nil
 }
