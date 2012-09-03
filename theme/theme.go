@@ -5,15 +5,10 @@ import (
 	"io/ioutil"
 )
 
-func Load(name string, path string) (*template.Template, error) {
+func Load(name string, path string) (tpl *template.Template, err error) {
 	b, err := ioutil.ReadFile(path)
 
-	template_str := string(b)
-	template_obj, err := template.New(name).Parse(template_str)
+	tpl, err = template.New(name).Parse(string(b))
 
-	if err != nil {
-		return nil, err
-	}
-
-	return template_obj, nil
+	return
 }
