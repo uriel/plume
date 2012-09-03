@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <title>{{.Name}}</title>
+</head>
+<body>
+{{if .Name}}
+  <h1>{{.Name}}</h1>
+{{end}}
+{{if .Description}}
+  <h2>{{.Description}}<h2>
+{{end}}
+
+  <ul>
+{{range .Blogroll}}
+    <li><a href="{{.Url}}" title="{{.Description}}">{{.Title}}</a></li>
+{{end}}
+  </ul>
+</body>
+</html>
